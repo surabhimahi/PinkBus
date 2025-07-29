@@ -8,20 +8,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-45deg, #000000, #ff69b4, #000000, #ff1493);
-    background-size: 400% 400%;
-    animation: gradientBG 30s ease infinite;
+    background: linear-gradient(to bottom right, #000000, #ff69b4);
     color: #fff;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 form {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 30px 40px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
@@ -68,12 +60,11 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #ff69b4;
-    transform: scale(1.02);
 }
 
 p {
