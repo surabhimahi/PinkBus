@@ -1,0 +1,115 @@
+/* General body styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: flex-start; /* 👈 Align from top */
+    padding: 50px 20px;  /* 👈 Adds space around form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #000000, #ff69b4);
+    color: white;
+    font-size: 14px; /* Reduced font size */
+}
+
+/* Form container */
+form {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(255, 105, 180, 0.5);
+    width: 600px; /* ⬅️ Fixed width for horizontal layout */
+    max-width: 120%;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+
+/* Form title */
+h1 {
+    text-align: center;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ff69b4;
+}
+
+/* Input field styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff69b4;
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+/* Button styling */
+button,
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff1493;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #ff69b4;
+}
+
+/* Help text styling (for password rules, etc.) */
+ul,
+.helptext {
+    margin: 10px 0;
+    font-size: 13px;
+    color: #ccc;
+    padding-left: 18px;
+}
+
+.errorlist {
+    color: #ffcccc;
+    font-size: 13px;
+}
+
+/* Footer link */
+p {
+    text-align: center;
+    margin-top: 15px;
+    color: #eee;
+}
+
+a {
+    color: #ff69b4;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

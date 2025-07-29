@@ -8,18 +8,23 @@
      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body >
-    <div class ="cont">
-        <h1>Welcome to PinkBus Booking App</h1>
-        <form action="/login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="/register">Register here</a></p>
-    </div>
+    {% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div>{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    <form  method="post" autocomplete="off">
+        {% csrf_token %}
+        
+        {{ form }}
+        <button type="submit">Login</button>
+
+        <p>Don't have an account ? Register now <a href="/register" >here </a> </p>
+    </form>
+
+
+    {% endblock %}
+
 </body>
 </html>

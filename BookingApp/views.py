@@ -1,11 +1,34 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .myforms import SignupForm
+from .myforms import SignupForm, LoginForm
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib import messages
 from django.shortcuts import redirect
 # Create your views here.
 
 def login(request):
-    return render(request, 'BookingApp\login.html')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            if User.objects.filter(username=username).exists():
+              
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+         
+                    login(request, user)
+                    return redirect('home_page')  
+                else: 
+                    print("yess")
+                    messages.error(request, 'Enter correct username and password.')
+            else: 
+                messages.error(request, 'Username not found. Kindly sign up.')
+    else:
+        form = LoginForm() 
+    return render(request, 'BookingApp/login.html', {'form': form})
 
 def register(request):
     if request.method =='POST':
