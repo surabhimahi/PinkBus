@@ -7,7 +7,10 @@ from django.contrib import messages
 from django.shortcuts import redirect
 # Create your views here.
 
-def login(request):
+def home(request):
+    return HttpResponse("Welcome to the Booking App Home Page!")
+
+def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -20,7 +23,7 @@ def login(request):
                 if user is not None:
          
                     login(request, user)
-                    return redirect('home_page')  
+                    return redirect('homeview')  
                 else: 
                     print("yess")
                     messages.error(request, 'Enter correct username and password.')
@@ -38,7 +41,7 @@ def register(request):
             user.is_superuser = False  # Set as superuser
             user.is_staff = False  # Required for admin access
             user.save()
-            return redirect('login')  # Redirect to login after successful signup
+            return redirect('login_view')  # Redirect to login after successful signup
     else:
         form = SignupForm()
     return render(request, 'BookingApp/register.html' , {'form':form})
