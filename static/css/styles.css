@@ -1,20 +1,30 @@
 /* styles.css */
 
 body {
-    background-color: #f0f4f8;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    background: linear-gradient(-45deg, #000000, #ff69b4, #000000, #ff1493);
+    background-size: 400% 400%;
+    animation: gradientBG 30s ease infinite;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 form {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5);
     width: 100%;
     max-width: 400px;
 }
@@ -22,48 +32,58 @@ form {
 h1 {
     text-align: center;
     margin-bottom: 25px;
-    color: #d63384;
+    color: #ff69b4;
+    font-weight: bold;
 }
 
 label {
     display: block;
     margin-bottom: 6px;
     font-weight: bold;
-    color: #333;
+    color: #ff69b4;
 }
 
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 10px 12px;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff69b4;
     border-radius: 8px;
-    box-sizing: border-box;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+input::placeholder {
+    color: #bbb;
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #d63384;
-    color: white;
+    padding: 12px;
+    background-color: #ff1493;
+    color: black;
     border: none;
     border-radius: 8px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 button:hover {
-    background-color: #c2185b;
+    background-color: #ff69b4;
+    transform: scale(1.02);
 }
 
 p {
     text-align: center;
     margin-top: 15px;
+    color: #fff;
 }
 
 a {
-    color: #d63384;
+    color: #ff69b4;
     text-decoration: none;
     font-weight: bold;
 }
