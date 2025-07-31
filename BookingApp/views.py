@@ -5,10 +5,22 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import redirect
+from .models import Route, Schedule, Bus, Seat
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-
+@login_required
 def home(request):
-    return HttpResponse("Welcome to the Booking App Home Page!")
+    if request.method == 'POST':
+        start = request.POST.get('start')
+        end = request.POST.get('end')
+        buses = Bus.objects.filter(start_route__name=start, end_route__name=end)
+        if not buses:   
+            messages.error(request, 'No buses found for the selected routes.') 
+        return render(request, "BookingApp/home.html", {"buses": buses, "start": start, "end": end})
+    
+    else:
+        cities = Route.objects.all()
+    return render(request, "BookingApp/home.html", {"cities": cities})
 
 def login_view(request):
     if request.method == 'POST':

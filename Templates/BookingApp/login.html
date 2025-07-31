@@ -8,16 +8,25 @@
      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body >
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <p>Please enter your credentials to continue.</p>
+   
     {% block content %}
-    {% if messages %}
-    {% for message in messages %}
-        <div>{{ message }}</div>
-    {% endfor %}
-    {% endif %}
+    
     <form  method="post" autocomplete="off">
         {% csrf_token %}
         
         {{ form }}
+        <div>
+
+            {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        <br>
+        </div>
         <button type="submit">Login</button>
 
         <p>Don't have an account ? Register now <a href="/register" >here </a> </p>
@@ -25,6 +34,6 @@
 
 
     {% endblock %}
-
+ </div>
 </body>
 </html>
